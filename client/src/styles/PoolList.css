@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.pool_list_wrap {
+  width: 100%;
+  background-color: #248277;
+}
+
+.pool_list_title {
+  margin-top: 0.1rem;
+}
+
+.pool_list_list {
+  font-weight: 500;
+  color: #fff;
+}
+
+.pool_list_list > div:last-child {
+  border-bottom: 1px solid #99e2b4;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.pool_list_list > div > div {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.pool_list_logo1 {
+  position: absolute;
+  left: 14%;
+  transform: translateY(15%);
+  height: 3rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #111;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.pool_list_logo2 {
+  position: absolute;
+  left: 16.3%;
+  transform: translateY(15%);
+  height: 3rem;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #111;
+  background-color: #fff;
+  margin-left: -0.2rem;
+}
+
+.pool_list_pair_name {
+  position: absolute;
+  left: 18%;
+  transform: translateY(5%);
+  padding: 1rem;
+  width: 15%;
+}
+
+.pool_list_title {
+  width: 40%;
+}
+
+.pool_list_title_logo {
+  transform: translate(150%, 35%);
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #111;
+}
+
+.pool_list_title_name {
+  transform: translate(35%, -100%);
+}
+
+.pool_list_tvl {
+  transform: translate(15%, -95%);
+  width: 20%;
+}
+
+.pool_list_apr {
+  transform: translate(40%, -95%);
+  width: 10%;
+  color: yellow;
+}
+
+.pool_list_link {
+  transform: translate(190%, -50%);
+  border-radius: 5px;
+  width: 5%;
+  padding: 5px;
+  background-color: rgb(20, 196, 99);
+  background-size: 300% 300%;
+  animation: anigradients 4s ease infinite;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0px 0px 5px #111;
+  transition: all 0.2s linear;
+}
+
+.pool_list_link:hover {
+  box-shadow: 0px 0px 10px #fff;
+  cursor: pointer;
+}
+
+/* width 반응형 */
+
+@media (max-width: 1450px) {
+  .pool_list_list > div > div {
+    font-size: 1rem;
+  }
+  .pool_list_logo1 {
+    height: 2.5rem;
+  }
+  .pool_list_logo2 {
+    left: 17%;
+    height: 2.5rem;
+  }
+  .pool_list_pair_name {
+    left: 19%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pool_list_pair_name {
+    left: 20%;
+  }
+  .pool_list_title_logo {
+    transform: translate(100%, 35%);
+  }
+}
+
+@media (max-width: 1050px) {
+  .pool_list_pair_name {
+    left: 21%;
+  }
+  .pool_list_title_logo {
+    transform: translate(80%, 35%);
+  }
+  .pool_list_link {
+    padding-right: 10px;
+  }
+}
