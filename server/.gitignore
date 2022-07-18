@@ -35,4 +35,8 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # ENV config
+<<<<<<< HEAD
 src/config/env/.*.env
+=======
+src/config/env/.*.env
+>>>>>>> 4717b2a ([REFACTOR] .gitignore)
