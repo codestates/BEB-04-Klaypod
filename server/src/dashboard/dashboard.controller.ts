@@ -1,4 +1,4 @@
-import { Controller, Get, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, UseInterceptors, Query } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { SuccessInterceptor } from 'src/common/interceptors/success.interceptor';
 import { Pair } from 'src/schemas/pair.schema';
@@ -50,5 +50,20 @@ export class DashboardController {
   @Get('/project')
   async getProjects(): Promise<Project[]> {
     return this.dashboardService.getProjects();
+  }
+
+  @ApiResponse({
+    status: 500,
+    description: 'Server Error...🥲',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Success !!!😆',
+  })
+  @ApiOperation({ summary: 'pair 심볼 검색' })
+  @Get('search')
+  async search(@Query() searchQeury) {
+    const { keyword, page, sort } = searchQeury;
+    return this.dashboardService.searchPair(keyword, page, sort);
   }
 }
