@@ -22,7 +22,7 @@ export class Pair extends Document {
   @Prop({
     required: true,
   })
-  tvl: number;
+  tvl: string;
 
   @Prop({
     required: true,
