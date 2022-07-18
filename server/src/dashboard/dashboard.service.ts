@@ -13,8 +13,22 @@ export class DashboardService {
     private readonly projectModel: Model<Project>,
   ) {}
 
-  async getPairs(): Promise<Pair[]> {
-    const pairsData = await this.pairModel.find();
+  async getPairsBySortTVL(): Promise<Pair[]> {
+    const pairsData = await this.pairModel
+      .find()
+      .populate('project_id')
+      .sort({ tvl: 'desc' });
+    if (!pairsData || pairsData.length == 0) {
+      throw new NotFoundException('페어가 존재하지 않습니다.');
+    }
+    return pairsData;
+  }
+
+  async getPairsBySortAPR(): Promise<Pair[]> {
+    const pairsData = await this.pairModel
+      .find()
+      .populate('project_id')
+      .sort({ apr: 'desc' });
     if (!pairsData || pairsData.length == 0) {
       throw new NotFoundException('페어가 존재하지 않습니다.');
     }
@@ -22,7 +36,7 @@ export class DashboardService {
   }
 
   async getProjects(): Promise<Project[]> {
-    const projectsData = await this.projectModel.find().sort({ name: 'asc' });
+    const projectsData = await this.projectModel.find();
     if (!projectsData || projectsData.length == 0) {
       throw new NotFoundException('프로젝트가 존재하지 않습니다.');
     }

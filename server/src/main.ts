@@ -42,7 +42,8 @@ async function bootstrap() {
     credentials: true, //백엔드 프론트엔드 모두 이 설정을  true로 해야함.
   });
 
-  await app.listen(3000);
+  const PORT = process.env.PORT;
+  await app.listen(PORT);
   console.log(`🚀 Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
