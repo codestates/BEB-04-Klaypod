@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document, SchemaOptions } from 'mongoose';
+import mongoose, { Date, Document, SchemaOptions } from 'mongoose';
 import { Project } from './project.schema';
 
 export type PairDocument = Pair & Document;
