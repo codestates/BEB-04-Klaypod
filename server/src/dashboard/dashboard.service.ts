@@ -18,6 +18,7 @@ export class DashboardService {
       .find()
       .populate('project_id')
       .sort({ tvl: 'desc' });
+
     if (!pairsData || pairsData.length == 0) {
       throw new NotFoundException('페어가 존재하지 않습니다.');
     }
