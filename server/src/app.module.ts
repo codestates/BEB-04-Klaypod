@@ -3,8 +3,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { AppController } from './app.controller';
-import { DashboardController } from './dashboard/dashboard.controller';
-import { DashboardService } from './dashboard/dashboard.service';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { LoggerMiddleware } from './logger.middleware';
 
@@ -17,8 +15,8 @@ import { LoggerMiddleware } from './logger.middleware';
     MongooseModule.forRoot(process.env.MONGO_URI, { useNewUrlParser: true }),
     DashboardModule,
   ],
-  controllers: [AppController, DashboardController],
-  providers: [ConfigService, DashboardService],
+  controllers: [AppController],
+  providers: [ConfigService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

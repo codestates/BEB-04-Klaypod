@@ -17,10 +17,7 @@ export class Pair extends Document {
   symbol: string;
 
   @Prop()
-  logo1: string;
-
-  @Prop()
-  logo2: string;
+  logo: [string];
 
   @Prop({
     required: true,
