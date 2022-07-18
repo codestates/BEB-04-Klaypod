@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python /Users/jhka/Documents/fdongfdong/project/Projects/BEB-04-Klaypod/server/crawling/crwaling.py
