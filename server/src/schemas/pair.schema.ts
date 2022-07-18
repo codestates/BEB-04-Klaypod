@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { Document, SchemaOptions } from 'mongoose';
+import mongoose, { Date, Document, SchemaOptions } from 'mongoose';
 import { Project } from './project.schema';
 
 export type PairDocument = Pair & Document;
@@ -39,4 +39,5 @@ export class Pair extends Document {
   @Prop()
   isActive: boolean;
 }
+
 export const PairSchema = SchemaFactory.createForClass(Pair);
