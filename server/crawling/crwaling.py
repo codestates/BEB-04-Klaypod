@@ -21,10 +21,66 @@ today = datetime.datetime.now()
 def apyToApr(APY):
     return (((1+APY/100)**(1/365)-1)*365)*100
 
+def aprToFloat(str):
+    if 'K' in str:
+        str = str.split('K')
+        return float(str[0])*1000
+    else:
+        return float(str)
 
 def stringToInteger(str):
     temp = str.split(',')
     return int(''.join(temp))
+
+
+def get_defi_total_tvl(swap):
+    kokonutswap_uri = "https://kokonutswap.finance/"
+    claimswap_uri = "https://app.claimswap.org/farm"
+    klayswap_url = "https://klayswap.com/dashboard"
+    driver = set_chrome_driver()
+
+    if swap == "kokonutswap":
+        driver.get(kokonutswap_uri)
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#root > div.sc-ddnlvQ.juaBBL > '
+                                                                'div.sc-bBHxTw.eeUxaJ > div.sc-giYglK.iLdmPu > '
+                                                                'div:nth-child(2) > div.sc-kLwhqv.iPKQFl')))
+
+        total_tvl = driver.find_element(By.CSS_SELECTOR, '#root > div.sc-ddnlvQ.juaBBL > '
+                                            'div.sc-bBHxTw.eeUxaJ > div.sc-giYglK.iLdmPu > '
+                                            'div:nth-child(2) > div.sc-kLwhqv.iPKQFl').text
+        result = total_tvl.replace('$', "")
+        result = stringToInteger(result)
+        return result
+    elif swap == 'klayswap':
+        driver.get(klayswap_url)
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#app > main > section > article > '
+                                                                'div.dashboard-page__summary__service > '
+                                                                'section:nth-child(1) > '
+                                                                'div.dashboard-page__summary__service__card__label')))
+        total_tvl = driver.execute_script("return document.getElementsByClassName('dashboard-page_"
+                                          "_summary__service__card__label')[0].lastChild.textContent")
+        result = total_tvl.replace(' $ ', '')
+        result = stringToInteger(result)
+        return result
+
+    elif swap == 'claimswap':
+        driver.get(claimswap_uri)
+        wait = WebDriverWait(driver, 10)
+        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#root > div.page-template >'
+                                                                ' div > div.farm-list-page > '
+                                                                'section:nth-child(1) > div > div > span')))
+
+        total_tvl = driver.find_element(By.CSS_SELECTOR,'#root > div.page-template > div > '
+                                            'div.farm-list-page > section:nth-child(1) '
+                                            '> div > div > span').text
+        result = total_tvl.replace('$ ', '')
+        result = stringToInteger(result)
+        return result
+
+    else:
+        return None
 
 
 def run_klaySwap_crawl():
@@ -78,7 +134,7 @@ def run_klaySwap_crawl():
                 data_set.append({
                     "pair": pair,
                     "tvl": stringToInteger(tvl),
-                    "apr": apr,
+                    "apr": aprToFloat(apr),
                     "logo": logo,
                     "project_id": 1,
                     "isActive": True,
@@ -89,7 +145,8 @@ def run_klaySwap_crawl():
                 time.sleep(0.1)
             try:
                 driver.find_element(By.CSS_SELECTOR,
-                                    '#exchange-page > div > section > div.pool-main-body > section > section > button.common-pager-button.common-pager-button--last')
+                                    '#exchange-page > div > section > div.pool-main-body >'
+                                    ' section > section > button.common-pager-button.common-pager-button--last')
             except NoSuchElementException:
                 break
 
@@ -197,7 +254,7 @@ def run_kokonutswap_crawl():
             data_set.append({
                 "pair": pair,
                 "tvl": stringToInteger(tvl.replace("$", "")),
-                "apr": apr.replace("%", ""),
+                "apr": float(apr.replace("%", "")),
                 "logo": logo,
                 "isActive": True,
                 "createAt": str(today.astimezone(KST)),
@@ -231,11 +288,11 @@ def create_project_collection():
     klaypod_collection.projects.insert_many(
         [
             {"name": "klayswap", "logo": "https://klayswap.com/img/logo/logo.svg",
-             "url": "https://klayswap.com/exchange/pool", "isActive": True, "createAt": str(today.astimezone(KST))},
+             "url": "https://klayswap.com/exchange/pool", "isActive": True, "createAt": str(today.astimezone(KST)), "tvl": get_defi_total_tvl('klayswap')},
             {"name": "kokonutswap", "logo": "https://cdn-images-1.medium.com/max/280/1*1Ah4r6CMB8p1UXp_AMmdBQ@2x.jpeg",
-             "url": "https://kokonutswap.finance/pools", "isActive": True, "createAt": str(today.astimezone(KST))},
+             "url": "https://kokonutswap.finance/pools", "isActive": True, "createAt": str(today.astimezone(KST)), 'tvl': get_defi_total_tvl('kokonutswap')},
             {"name": "claimswap", "logo": "https://mobile.twitter.com/claimswap/photo",
-             "url": "https://app.claimswap.org/farm", "isActive": True, "createAt": str(today.astimezone(KST))}
+             "url": "https://app.claimswap.org/farm", "isActive": True, "createAt": str(today.astimezone(KST)), 'tvl': get_defi_total_tvl('claimswap')}
         ]
     )
 
