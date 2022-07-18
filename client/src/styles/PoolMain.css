@@ -1,0 +1,75 @@
+::-webkit-scrollbar {
+  width: 1rem;
+  background-color: #248277;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #99e2b4;
+  border-radius: 1rem;
+}
+
+.pool_wrapper {
+  position: relative;
+  background-color: #248277;
+  height: 100vh;
+}
+
+.pool_container {
+  padding-top: 5rem;
+  width: 100%;
+  background-color: #248277;
+}
+
+.pool_title {
+  margin-bottom: 1.5rem;
+}
+
+.pool_title_notice {
+  padding-left: 14rem;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #99e2b4;
+  white-space: nowrap;
+}
+
+/*  👇👇👇👇👇 메뉴 CSS 👇👇👇👇👇*/
+
+.pool_list {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid transparent;
+  color: #99e2b4;
+  border-radius: 2rem;
+  box-shadow: 0px 0px 10px #111;
+}
+
+.pool_list > div > div {
+  display: inline-block;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.pool_top {
+  font-weight: 600;
+}
+
+.pool_pair {
+  width: 30%;
+}
+
+.pool_project {
+  width: 25%;
+}
+
+.pool_tvl {
+  width: 20%;
+}
+
+.pool_apr {
+  width: 10%;
+}
+
+.pool_link {
+  width: 15%;
+}

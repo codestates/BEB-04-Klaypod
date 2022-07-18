@@ -1,0 +1,124 @@
+.pool_nav_wrapper {
+  background-color: #248277;
+  display: flex;
+  width: 100%;
+}
+
+.pool_logo_container {
+  align-items: center;
+  cursor: pointer;
+}
+
+.pool_logo_text {
+  position: absolute;
+  left: 17.15%;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.4rem;
+  padding-top: 1.7rem;
+}
+
+.pool_logo_img {
+  position: absolute;
+  left: 22.2%;
+  top: 2.2%;
+}
+
+.pool_header_items {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  line-height: 4.9rem;
+  font-size: 1.4rem;
+  margin-top: -1px;
+}
+
+.pool_header_menu {
+  margin-left: 3rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.pool_header_menu:hover {
+  color: #78c6a3;
+  cursor: pointer;
+}
+
+.pool_wallet_icon {
+  color: #fff;
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.pool_wallet_icon:hover {
+  color: #78c6a3;
+  cursor: pointer;
+}
+
+/* width 반응형 */
+
+@media (max-width: 1900px) {
+  .pool_logo_img {
+    left: 22.2%;
+  }
+}
+
+@media (max-width: 1750px) {
+  .pool_logo_img {
+    left: 23%;
+  }
+}
+
+@media (max-width: 1450px) {
+  .pool_logo_img {
+    left: 25%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pool_logo_img {
+    left: 27%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .pool_logo_img {
+    left: 29%;
+  }
+}
+
+@media (max-width: 900px) {
+  .pool_logo_img {
+    left: 30%;
+  }
+}
+
+@media (max-width: 880px) {
+  .pool_logo_text {
+    display: none;
+  }
+  .pool_logo_img {
+    left: 10%;
+  }
+}
+
+/* height 반응형 */
+
+@media (max-height: 900px) {
+  .pool_logo_img {
+    top: 2.3%;
+  }
+}
+
+@media (max-height: 850px) {
+  .pool_logo_img {
+    top: 2.4%;
+  }
+}
+
+@media (max-height: 650px) {
+  .pool_logo_img {
+    top: 2.6%;
+  }
+}
