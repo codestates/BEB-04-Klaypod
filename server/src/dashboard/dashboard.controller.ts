@@ -2,7 +2,6 @@ import { Controller, Get, UseInterceptors, Query } from '@nestjs/common';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { SuccessInterceptor } from 'src/common/interceptors/success.interceptor';
 import { Pair } from 'src/schemas/pair.schema';
-import { Project } from 'src/schemas/project.schema';
 import { DashboardService } from './dashboard.service';
 
 @Controller('dashboard')
@@ -18,38 +17,11 @@ export class DashboardController {
     status: 200,
     description: 'Success !!!😆',
   })
-  @ApiOperation({ summary: 'pair tvl순 정렬' })
+  @ApiOperation({ summary: 'pair 정렬' })
   @Get()
-  async getPairsBySortTVL(): Promise<Pair[]> {
-    return this.dashboardService.getPairsBySortTVL();
-  }
-
-  @ApiResponse({
-    status: 500,
-    description: 'Server Error...🥲',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Success !!!😆',
-  })
-  @ApiOperation({ summary: 'pair apr순 정렬' })
-  @Get('/apr')
-  async getPairsBySortAPR(): Promise<Pair[]> {
-    return this.dashboardService.getPairsBySortAPR();
-  }
-
-  @ApiResponse({
-    status: 500,
-    description: 'Server Error...🥲',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Success !!!😆',
-  })
-  @ApiOperation({ summary: 'project 정렬' })
-  @Get('/project')
-  async getProjects(): Promise<Project[]> {
-    return this.dashboardService.getProjects();
+  async getPairs(@Query() sortQuery): Promise<Pair[]> {
+    const { filter, sort, page } = sortQuery;
+    return this.dashboardService.sortAndFilterPair(sort, page, filter);
   }
 
   @ApiResponse({
@@ -62,8 +34,8 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 심볼 검색' })
   @Get('search')
-  async search(@Query() searchQeury) {
-    const { keyword, page, sort } = searchQeury;
+  async search(@Query() searchQuery): Promise<Pair[]> {
+    const { keyword, page, sort } = searchQuery;
     return this.dashboardService.searchPair(keyword, page, sort);
   }
 }
