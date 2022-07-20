@@ -9,10 +9,7 @@ export class LoggerMiddleware implements NestMiddleware {
     //response에 대한 결과값도 로깅 하려면 res.on()
     res.on('finish', () => {
       //response가 finish하면
-      this.logger.log(
-        `${req.ip} ${req.method} ${res.statusCode}`,
-        req.originalUrl,
-      );
+      this.logger.log(`${req.ip} ${req.method} ${res.statusCode}`, req.originalUrl);
     });
     next();
   }

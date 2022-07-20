@@ -1,6 +1,6 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, PaginateModel } from 'mongoose';
 import { Pair } from 'src/schemas/pair.schema';
 import { Project } from 'src/schemas/project.schema';
 
@@ -8,7 +8,7 @@ import { Project } from 'src/schemas/project.schema';
 export class DashboardService {
   constructor(
     @InjectModel(Pair.name)
-    private readonly pairModel: Model<Pair>,
+    private readonly pairModel: PaginateModel<Pair>,
     @InjectModel(Project.name)
     private readonly projectModel: Model<Project>,
   ) {}
