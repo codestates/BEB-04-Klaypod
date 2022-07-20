@@ -42,19 +42,19 @@ export class DashboardService {
           })
           .sort(sortBy);
         result = found.filter((pair) => pair.project_id !== null).splice(0, 11);
+      } else {
+        result = await this.pairModel
+          .find(
+            sort === 'tvl'
+              ? { isActive: true, tvl: { $lt: cursor } }
+              : sort === 'apr'
+              ? { isActive: true, apr: { $lt: cursor } }
+              : null,
+          )
+          .populate('project_id')
+          .sort(sortBy)
+          .limit(limit + 1);
       }
-
-      result = await this.pairModel
-        .find(
-          sort === 'tvl'
-            ? { isActive: true, tvl: { $lt: cursor } }
-            : sort === 'apr'
-            ? { isActive: true, apr: { $lt: cursor } }
-            : null,
-        )
-        .populate('project_id')
-        .sort(sortBy)
-        .limit(limit + 1);
 
       // 조회된 값이 없다면
       if (!result) throw new NotFoundException('No pairs found!');
