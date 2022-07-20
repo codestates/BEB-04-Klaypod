@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, PaginateModel } from 'mongoose';
 import { Pair } from 'src/schemas/pair.schema';
@@ -13,6 +13,7 @@ export class DashboardService {
     private readonly projectModel: Model<Project>,
   ) {}
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async sortAndFilterPair(sort: string, cursor: number, filter: string): Promise<Object> {
     // 정렬 기준(sort)가 query string에 주어지지 않았다면 디폴트 값인 tvl 순으로 정렬한다.
     if (!sort) sort = 'tvl';
@@ -85,6 +86,7 @@ export class DashboardService {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async searchPair(keyword: string, cursor: number, sort: string): Promise<Object> {
     // 정렬 기준(sort)가 query string에 주어지지 않았다면 디폴트 값인 tvl 순으로 정렬한다.
     if (!sort) sort = 'tvl';

@@ -18,6 +18,7 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 정렬' })
   @Get('yield')
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async getPairs(@Query() sortQuery): Promise<Object> {
     const { filter, sort, cursor } = sortQuery;
     return this.dashboardService.sortAndFilterPair(sort, cursor, filter);
@@ -48,6 +49,7 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 정렬' })
   @Get('defi')
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async getProjects(): Promise<Object> {
     return this.dashboardService.sortProject();
   }
