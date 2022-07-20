@@ -19,9 +19,9 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 정렬' })
   @Get()
-  async getPairs(@Query() sortQuery): Promise<Pair[]> {
-    const { filter, sort, page } = sortQuery;
-    return this.dashboardService.sortAndFilterPair(sort, page, filter);
+  async getPairs(@Query() sortQuery): Promise<Object> {
+    const { filter, sort, cursor } = sortQuery;
+    return this.dashboardService.sortAndFilterPair(sort, cursor, filter);
   }
 
   @ApiResponse({
