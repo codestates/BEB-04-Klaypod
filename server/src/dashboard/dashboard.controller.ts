@@ -19,9 +19,9 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 정렬' })
   @Get()
-  async getPairs(@Query() sortQuery): Promise<Pair[]> {
-    const { filter, sort, page } = sortQuery;
-    return this.dashboardService.sortAndFilterPair(sort, page, filter);
+  async getPairs(@Query() sortQuery): Promise<Object> {
+    const { filter, sort, cursor } = sortQuery;
+    return this.dashboardService.sortAndFilterPair(sort, cursor, filter);
   }
 
   @ApiResponse({
@@ -34,8 +34,8 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 심볼 검색' })
   @Get('search')
-  async search(@Query() searchQuery): Promise<Pair[]> {
-    const { keyword, page, sort } = searchQuery;
-    return this.dashboardService.searchPair(keyword, page, sort);
+  async search(@Query() searchQuery): Promise<Object> {
+    const { keyword, cursor, sort } = searchQuery;
+    return this.dashboardService.searchPair(keyword, cursor, sort);
   }
 }
