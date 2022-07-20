@@ -69,12 +69,10 @@ export class DashboardService {
         nextCursor =
           sort === 'tvl' ? nextCursorPair.tvl : sort === 'apr' ? nextCursorPair.apr : null;
         result.pop();
-        // console.log(result);
-        // console.log('nextCursorPair: ', nextCursorPair, 'nextCursor: ', nextCursor);
       }
 
       return {
-        result: !filter ? result : result.filter((pair) => pair.project_id !== null),
+        result: result,
         pagination: {
           limit: limit,
           count: result.length,
@@ -125,8 +123,6 @@ export class DashboardService {
         nextCursor =
           sort === 'tvl' ? nextCursorPair.tvl : sort === 'apr' ? nextCursorPair.apr : null;
         searched.pop();
-        // console.log(searched);
-        // console.log('nextCursorPair: ', nextCursorPair, 'nextCursor: ', nextCursor);
       }
 
       return {
