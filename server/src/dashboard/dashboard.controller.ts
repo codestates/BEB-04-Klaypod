@@ -34,8 +34,8 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 심볼 검색' })
   @Get('search')
-  async search(@Query() searchQuery): Promise<Pair[]> {
-    const { keyword, page, sort } = searchQuery;
-    return this.dashboardService.searchPair(keyword, page, sort);
+  async search(@Query() searchQuery): Promise<Object> {
+    const { keyword, cursor, sort } = searchQuery;
+    return this.dashboardService.searchPair(keyword, cursor, sort);
   }
 }

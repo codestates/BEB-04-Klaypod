@@ -1,9 +1,4 @@
-import {
-  Injectable,
-  NestInterceptor,
-  ExecutionContext,
-  CallHandler,
-} from '@nestjs/common';
+import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -15,7 +10,8 @@ export class SuccessInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map((data) => ({
         success: true,
-        data,
+        data: data.result,
+        pagination: data.pagination,
       })),
     ); //data는 response인자(controller에서 리턴한 데이터)
   }
