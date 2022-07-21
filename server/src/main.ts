@@ -44,6 +44,9 @@ async function bootstrap() {
 
   const PORT = process.env.PORT;
   await app.listen(PORT);
-  console.log(`🚀 Application is running on: ${await app.getUrl()}`);
+  console.log(`
+  ############################################
+  # 🚀 Application is running on: ${await app.getUrl()}
+  ############################################`);
 }
 bootstrap();
