@@ -7,7 +7,7 @@ export class DashboardService {
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   async sortAndFilterPair(sort: string, cursor: number, filter: string): Promise<Object> {
-    return await this.dashboardRepository.sortAndFilterParir(sort, cursor, filter);
+    return await this.dashboardRepository.sortAndFilterPair(sort, cursor, filter);
   }
 
   // eslint-disable-next-line @typescript-eslint/ban-types

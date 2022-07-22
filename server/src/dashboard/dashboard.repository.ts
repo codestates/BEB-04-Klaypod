@@ -11,7 +11,7 @@ export class DashboardRepository {
   ) {}
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  async sortAndFilterParir(sort: string, cursor: number, filter: string): Promise<Object> {
+  async sortAndFilterPair(sort: string, cursor: number, filter: string): Promise<Object> {
     // 정렬 기준(sort)가 query string에 주어지지 않았다면 디폴트 값인 tvl 순으로 정렬한다.
     if (!sort) sort = 'tvl';
 
