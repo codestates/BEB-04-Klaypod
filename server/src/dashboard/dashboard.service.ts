@@ -141,6 +141,7 @@ export class DashboardService {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async sortProject(): Promise<Object> {
     const sorted = await this.projectModel.find().sort({ tvl: 'desc' });
     return {

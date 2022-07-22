@@ -34,6 +34,7 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 심볼 검색' })
   @Get('yield/search')
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async search(@Query() searchQuery): Promise<Object> {
     const { keyword, cursor, sort } = searchQuery;
     return this.dashboardService.searchPair(keyword, cursor, sort);
