@@ -1,12 +1,12 @@
 import { NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model, PaginateModel } from 'mongoose';
+import { Model } from 'mongoose';
 import { Pair } from 'src/schemas/pair.schema';
 import { Project } from 'src/schemas/project.schema';
 
 export class DashboardRepository {
   constructor(
-    @InjectModel(Pair.name) private readonly pairModel: PaginateModel<Pair>,
+    @InjectModel(Pair.name) private readonly pairModel: Model<Pair>,
     @InjectModel(Project.name) private readonly projectModel: Model<Project>,
   ) {}
 

@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document, SchemaOptions } from 'mongoose';
 import { Project } from './project.schema';
-import * as mongoosePaginate from 'mongoose-paginate-v2';
 
 export type PairDocument = Pair & Document;
 
@@ -41,4 +40,4 @@ export class Pair extends Document {
   isActive: boolean;
 }
 
-export const PairSchema = SchemaFactory.createForClass(Pair).plugin(mongoosePaginate);
+export const PairSchema = SchemaFactory.createForClass(Pair);
