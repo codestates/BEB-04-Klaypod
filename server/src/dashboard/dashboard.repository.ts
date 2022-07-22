@@ -1,9 +1,10 @@
-import { NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Pair } from 'src/schemas/pair.schema';
 import { Project } from 'src/schemas/project.schema';
 
+@Injectable()
 export class DashboardRepository {
   constructor(
     @InjectModel(Pair.name) private readonly pairModel: Model<Pair>,
