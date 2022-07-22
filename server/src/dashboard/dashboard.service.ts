@@ -138,4 +138,12 @@ export class DashboardService {
       throw new Error('error: searchPair in dashboard.service.ts');
     }
   }
+
+  async sortProject(): Promise<Object> {
+    const sorted = await this.projectModel.find().sort({ tvl: 'desc' });
+    return {
+      result: sorted,
+      pagination: null,
+    };
+  }
 }
