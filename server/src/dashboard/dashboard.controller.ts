@@ -18,6 +18,7 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 정렬' })
   @Get('yield')
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async getPairs(@Query() sortQuery): Promise<Object> {
     const { filter, sort, cursor } = sortQuery;
     return this.dashboardService.sortAndFilterPair(sort, cursor, filter);
@@ -33,6 +34,7 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 심볼 검색' })
   @Get('yield/search')
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async search(@Query() searchQuery): Promise<Object> {
     const { keyword, cursor, sort } = searchQuery;
     return this.dashboardService.searchPair(keyword, cursor, sort);
@@ -48,6 +50,7 @@ export class DashboardController {
   })
   @ApiOperation({ summary: 'pair 정렬' })
   @Get('defi')
+  // eslint-disable-next-line @typescript-eslint/ban-types
   async getProjects(): Promise<Object> {
     return this.dashboardService.sortProject();
   }
