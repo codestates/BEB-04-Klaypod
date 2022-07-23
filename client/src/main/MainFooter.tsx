@@ -6,7 +6,7 @@ const MainFooter = () => {
   return (
     <>
       <div className="main_footer_wrapper">
-        <footer>
+        <footer className="main_footer_container">
           <nav>
             <div className="main_footer_logo_text">KlayPod</div>
             <img

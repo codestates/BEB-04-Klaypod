@@ -1,5 +1,5 @@
 import MainNav from "./MainNav";
-import MainPage from "../pages/MainPage";
+import MainPage from "./MainPage";
 import MainFooter from "./MainFooter";
 import "../styles/Main.css";
 

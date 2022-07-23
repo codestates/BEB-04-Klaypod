@@ -1,9 +1,14 @@
+import { FC } from "react";
 import { Link } from "react-router-dom";
-import PoolMain from "./PoolMain";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
-import "../styles/PoolNav.css";
+import "../../styles/AprNav.css";
 
-function PoolNav() {
+export interface onClickProps {
+  account?: any;
+  Connect?: any;
+}
+
+const AprNav: FC<onClickProps> = () => {
   return (
     <>
       <div className="pool_nav_wrapper clearfix">
@@ -20,28 +25,25 @@ function PoolNav() {
           </Link>
         </div>
         <div className="pool_header_items">
-          <Link to="#">
+          <Link to="/swap">
             <li className="pool_header_menu">Swap</li>
           </Link>
-          <Link to="#">
+          <Link to="/staking">
             <li className="pool_header_menu">Staking</li>
           </Link>
-          <Link to="#">
+          <Link to="/wallet">
             <li className="pool_header_menu">Wallet</li>
           </Link>
           <Link to="#">
             <li className="pool_header_menu">Docs</li>
           </Link>
-          <Link to="/wallet">
-            <li className="pool_header_menu pool_wallet_icon">
-              <MdOutlineAccountBalanceWallet />
-            </li>
-          </Link>
+          <li className="pool_header_menu pool_wallet_icon">
+            <MdOutlineAccountBalanceWallet />
+          </li>
         </div>
       </div>
-      <PoolMain />
     </>
   );
-}
+};
 
-export default PoolNav;
+export default AprNav;

@@ -8,6 +8,7 @@
 .pool_list_wrap {
   width: 100%;
   background-color: #248277;
+  border-radius: 5rem;
 }
 
 .pool_list_title {
@@ -38,6 +39,9 @@
   left: 14%;
   transform: translateY(15%);
   height: 3rem;
+  width: 3rem;
+  padding: 2px;
+  border: 3px solid #248277;
   border-radius: 50%;
   box-shadow: 0px 0px 10px #111;
   background-color: #fff;
@@ -49,6 +53,9 @@
   left: 16.3%;
   transform: translateY(15%);
   height: 3rem;
+  width: 3rem;
+  padding: 3px;
+  border: 3px solid #248277;
   border-radius: 50%;
   box-shadow: 0px 0px 10px #111;
   background-color: #fff;
@@ -70,6 +77,9 @@
 .pool_list_title_logo {
   transform: translate(150%, 35%);
   height: 2rem;
+  width: 2rem;
+  padding: 4px;
+  border: 2px solid #248277;
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0px 0px 10px #111;
@@ -91,17 +101,22 @@
 }
 
 .pool_list_link {
-  transform: translate(190%, -50%);
-  border-radius: 5px;
-  width: 5%;
+  display: inline-block;
+  transform: translate(190%, -40%);
+  border-radius: 10px;
+  min-width: 5%;
   padding: 5px;
-  background-color: rgb(20, 196, 99);
+  background-color: rgb(21, 177, 91);
   background-size: 300% 300%;
-  animation: anigradients 4s ease infinite;
-  font-weight: 700;
+  animation: anigradients 2s ease infinite;
+  font-weight: 600;
   color: #fff;
   box-shadow: 0px 0px 5px #111;
   transition: all 0.2s linear;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  white-space: nowrap;
 }
 
 .pool_list_link:hover {
@@ -144,6 +159,12 @@
     transform: translate(80%, 35%);
   }
   .pool_list_link {
-    padding-right: 10px;
+    transform: translate(180%, -40%);
+  }
+}
+
+@media (max-width: 950px) {
+  .pool_list_link {
+    transform: translate(150%, -40%);
   }
 }

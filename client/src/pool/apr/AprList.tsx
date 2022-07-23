@@ -1,25 +1,32 @@
 import { FC } from "react";
-import "../styles/PoolList.css";
+import "../../styles/AprList.css";
 
-export interface PoolListProps {
+export interface AprListProps {
+  project_id: any;
+  _id: string;
   pair: string;
   logo1: string;
   logo2: string;
-  project: string;
+  name: string;
   logo: string;
-  tvl: string;
+  tvl: number;
   apr: number;
+  url: string;
 }
 
-const PoolList: FC<PoolListProps> = ({
+const AprList: FC<AprListProps> = ({
   pair,
   logo1,
   logo2,
-  project,
+  name,
   logo,
   tvl,
   apr,
+  url,
 }) => {
+  let tvlString = tvl.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  let aprString = apr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // tvl, apr 1,000단위마다 쉼표찍어주기
   return (
     <div className="pool_list_wrap">
       <div className="pool_list_title"></div>
@@ -31,11 +38,13 @@ const PoolList: FC<PoolListProps> = ({
             <div className="pool_list_pair_name">{pair}</div>
             <div className="pool_list_title">
               <img className="pool_list_title_logo" src={logo} alt="" />
-              <div className="pool_list_title_name">{project}</div>
+              <div className="pool_list_title_name">{name}</div>
             </div>
-            <div className="pool_list_tvl">$ {tvl}</div>
-            <div className="pool_list_apr">{apr} %</div>
-            <div className="pool_list_link">예치</div>
+            <div className="pool_list_tvl">$ {tvlString}</div>
+            <div className="pool_list_apr">{aprString} %</div>
+            <a href={url} target="_blank" className="pool_list_link">
+              예치
+            </a>
           </div>
         </div>
       </div>
@@ -43,4 +52,4 @@ const PoolList: FC<PoolListProps> = ({
   );
 };
 
-export default PoolList;
+export default AprList;
