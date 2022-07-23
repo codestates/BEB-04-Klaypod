@@ -29,7 +29,6 @@
     "@nestjs/swagger": "^6.0.4",
     "express-basic-auth": "^1.2.1",
     "mongoose": "^6.4.4",
-    "mongoose-paginate-v2": "^1.7.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"

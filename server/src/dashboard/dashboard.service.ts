@@ -7,16 +7,17 @@ export class DashboardService {
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   async sortAndFilterPair(sort: string, cursor: number, filter: string): Promise<Object> {
-    return await this.dashboardRepository.sortAndFilterPair(sort, cursor, filter);
+    if (!filter) return await this.dashboardRepository.findPairAndSort(sort, cursor);
+    return await this.dashboardRepository.findFilteredPairAndSort(sort, cursor, filter);
   }
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   async searchPair(keyword: string, cursor: number, sort: string): Promise<Object> {
-    return await this.dashboardRepository.searchPair(keyword, cursor, sort);
+    return await this.dashboardRepository.findPairByKeyword(keyword, cursor, sort);
   }
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   async sortProject(): Promise<Object> {
-    return await this.dashboardRepository.sortProject();
+    return await this.dashboardRepository.findProjectAndSort();
   }
 }
