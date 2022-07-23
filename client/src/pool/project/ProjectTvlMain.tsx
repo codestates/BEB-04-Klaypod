@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import "../../styles/AprMain.css";
+import "../../styles/ProjectTvlMain.css";
 import { AprListProps } from "../apr/AprList";
 import ProjectTvlList from "./ProjectTvlList";
 import FillterButton from "../apr/FillterButton";
@@ -22,20 +22,18 @@ const ProjectTvlMain: FC<onClickProps> = ({ Connect, account }) => {
   return (
     <>
       <AprNav account={account} Connect={Connect} />
-      <div className="pool_wrapper">
-        <div className="pool_container">
-          <div className="pool_title">
-            <div className="pool_title_notice">KlayPod Scan</div>
+      <div className="project_wrapper">
+        <div className="project_container">
+          <div className="project_title">
+            <div className="project_title_notice">KlayPod Scan</div>
           </div>
           <FillterButton />
           <div>
-            <div className="pool_list">
-              <div className="pool_top">
-                <div className="pool_pair">Pair</div>
-                <div className="pool_project">Project</div>
-                <div className="pool_tvl">TVL</div>
-                <div className="pool_apr">APR</div>
-                <div className="pool_link">Link</div>
+            <div className="project_list">
+              <div className="project_top">
+                <div className="project_project">Project</div>
+                <div className="project_tvl"> 총 TVL 규모</div>
+                <div className="project_link">Link</div>
               </div>
               <div>
                 {projectList.map((list, index) => (

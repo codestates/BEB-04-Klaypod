@@ -1,0 +1,56 @@
+.project_wrapper {
+  position: relative;
+  background-color: #248277;
+  height: 100vh;
+}
+
+.project_container {
+  padding-top: 5rem;
+  width: 100%;
+  background-color: #248277;
+}
+
+.project_title {
+  margin-bottom: 1.5rem;
+}
+
+.project_title_notice {
+  padding-left: 14rem;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.project_list {
+  width: 80%;
+  margin: 0 auto;
+  border: 3px solid transparent;
+  color: #b1f1c8;
+  border-radius: 3rem;
+  box-shadow: 0px 0px 10px #111;
+}
+
+.project_list > div > div {
+  display: inline-block;
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.project_top {
+  font-weight: 600;
+}
+
+.project_project {
+  width: 50%;
+}
+
+.project_tvl {
+  width: 25%;
+  white-space: nowrap;
+}
+
+.project_link {
+  width: 25%;
+}
