@@ -88,14 +88,13 @@ export class DashboardRepository {
         )
         .populate({
           path: 'project_id',
-          match: { name: new RegExp(filter + '$', 'i') }, // 대소문자 상관없이 알파벳만 정확히 일치하면 되도록
+          match: { name: new RegExp('^' + filter + '$', 'i') }, // 대소문자 상관없이 알파벳만 정확히 일치하면 되도록
         })
         .sort(sortBy)
         .exec();
 
       const result = found.filter((pair) => pair.project_id !== null).slice(0, 11);
-      console.log('==============', found);
-      console.log('+++++++++++++++', result);
+
       // 조회된 값이 없다면
       if (!result) throw new NotFoundException('No pairs found!');
 
