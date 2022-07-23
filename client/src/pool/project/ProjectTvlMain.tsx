@@ -11,7 +11,7 @@ const ProjectTvlMain: FC<onClickProps> = ({ Connect, account }) => {
 
   useEffect(() => {
     const poolData = async () => {
-      let res = `http://localhost:8080/dashboard?sort=tvl&cursor=99999999999`;
+      let res = `http://localhost:8080/dashboard/defi`;
       let response = await fetch(res);
       let projectData = await response.json();
       setProjectList(projectData.data);

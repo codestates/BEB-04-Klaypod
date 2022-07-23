@@ -36,7 +36,7 @@
 
 .pool_list_logo1 {
   position: absolute;
-  left: 14%;
+  left: 13%;
   transform: translateY(15%);
   height: 3rem;
   width: 3rem;
@@ -50,7 +50,7 @@
 
 .pool_list_logo2 {
   position: absolute;
-  left: 16.3%;
+  left: 15.3%;
   transform: translateY(15%);
   height: 3rem;
   width: 3rem;
@@ -132,10 +132,12 @@
   }
   .pool_list_logo1 {
     height: 2.5rem;
+    width: 2.5rem;
   }
   .pool_list_logo2 {
-    left: 17%;
+    left: 15.5%;
     height: 2.5rem;
+    width: 2.5rem;
   }
   .pool_list_pair_name {
     left: 19%;
@@ -145,18 +147,22 @@
 @media (max-width: 1200px) {
   .pool_list_pair_name {
     left: 20%;
+    transform: translateY(10%);
   }
   .pool_list_title_logo {
-    transform: translate(100%, 35%);
+    transform: translate(130%, 35%);
+  }
+  .pool_list_list > div > div {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 1050px) {
   .pool_list_pair_name {
-    left: 21%;
+    left: 18%;
   }
   .pool_list_title_logo {
-    transform: translate(80%, 35%);
+    transform: translate(60%, 35%);
   }
   .pool_list_link {
     transform: translate(180%, -40%);
@@ -166,5 +172,9 @@
 @media (max-width: 950px) {
   .pool_list_link {
     transform: translate(150%, -40%);
+  }
+
+  .pool_list_pair_name {
+    left: 15%;
   }
 }

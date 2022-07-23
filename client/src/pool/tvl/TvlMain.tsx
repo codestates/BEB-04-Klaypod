@@ -15,7 +15,7 @@ const TvlMain: FC<onClickProps> = ({ Connect, account }) => {
   useEffect(() => {
     const poolData = async () => {
       setIsLoading(true);
-      let res = `http://localhost:8080/dashboard?sort=tvl&cursor=99999999999`;
+      let res = `http://localhost:8080/dashboard/yield?sort=tvl&cursor=999999999`;
       let response = await fetch(res);
       let tvlData = await response.json();
       setFirstPoolList(tvlData.data);
@@ -26,7 +26,7 @@ const TvlMain: FC<onClickProps> = ({ Connect, account }) => {
 
   const poolSaveData = async () => {
     setIsLoading(true);
-    let res = `http://localhost:8080/dashboard?sort=tvl&cursor=${nextCursorData}`;
+    let res = `http://localhost:8080/dashboard/yield?sort=tvl&cursor=${nextCursorData}`;
     let response = await fetch(res);
     let tvlData = await response.json();
 

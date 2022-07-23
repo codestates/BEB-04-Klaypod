@@ -19,7 +19,7 @@ function MainPage() {
         </span>
       </div>
       <div className="main_btn_wrapper">
-        <Link to="/pool">
+        <Link to="/apr">
           <div className="main_enter_btn">Enter App</div>
         </Link>
         <Link to="#">

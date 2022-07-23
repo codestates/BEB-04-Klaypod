@@ -19,7 +19,7 @@ function MainNav() {
           <Link to="#">
             <div className="main_nav_docs_btn">Docs</div>
           </Link>
-          <Link to="/pool">
+          <Link to="/apr">
             <div className="main_nav_enter_btn">Enter App</div>
           </Link>
         </div>
