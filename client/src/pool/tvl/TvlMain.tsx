@@ -13,21 +13,18 @@ const TvlMain = () => {
 
   useEffect(() => {
     const poolData = async () => {
-      setIsLoading(true); // 데이터를 불러오는중에는 로딩중 표시
+      setIsLoading(true);
       let res = `http://localhost:8080/dashboard?sort=tvl&cursor=99999999999`;
       let response = await fetch(res);
       let tvlData = await response.json();
       setFirstPoolList(tvlData.data);
-      setIsLoading(false); // 데이터를 다 불러왔으면 로딩중 끝
+      setIsLoading(false);
     };
     poolData();
   }, []);
-  console.log("poolList 첫번째", poolList);
 
   const poolSaveData = async () => {
-    // 서버에서 데이터를 추가로 받아오는 함수 (비동기처리)
-
-    setIsLoading(true); // 데이터를 불러오는중에는 로딩중 표시
+    setIsLoading(true);
     let res = `http://localhost:8080/dashboard?sort=tvl&cursor=${nextCursorData}`;
     let response = await fetch(res);
     let tvlData = await response.json();
@@ -37,14 +34,10 @@ const TvlMain = () => {
     }
     setSavePoolList([...tvlData.data]);
     setPoolList([...poolList, ...savePoolList]);
-    setIsLoading(false); // 데이터를 다 불러왔으면 로딩중 끝
+    setIsLoading(false);
   };
-  console.log("스크롤", nextCursorData);
-  console.log("저장공간", savePoolList);
-  console.log("poolList 두번째", poolList);
 
   const infiniteScroll = useCallback(() => {
-    //스크롤 높이를 감지해서 👉 조건에 만족하면 poolSaveData 함수 호출
     let scrollHeight = Math.max(
       document.documentElement.scrollHeight,
       document.body.scrollHeight
@@ -55,7 +48,7 @@ const TvlMain = () => {
     );
     let clientHeight = document.documentElement.clientHeight;
 
-    scrollHeight -= 95; // 스크롤이 맨 끝 지점(95)에 왔을때
+    scrollHeight -= 95;
 
     if (scrollTop + clientHeight >= scrollHeight && isLoading === false) {
       poolSaveData();
@@ -63,8 +56,8 @@ const TvlMain = () => {
   }, [isLoading]);
 
   useEffect(() => {
-    window.addEventListener("scroll", infiniteScroll, true); // 스크롤 이벤트 등록
-    return () => window.removeEventListener("scroll", infiniteScroll, true); //스크롤 이벤트 삭제
+    window.addEventListener("scroll", infiniteScroll, true);
+    return () => window.removeEventListener("scroll", infiniteScroll, true);
   }, [infiniteScroll]);
 
   return (

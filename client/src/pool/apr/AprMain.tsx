@@ -14,42 +14,31 @@ const AprMain = () => {
 
   useEffect(() => {
     const poolData = async () => {
-      setIsLoading(true); // 데이터를 불러오는중에는 로딩중 표시
-      let res = `http://localhost:8080/dashboard?sort=apr&cursor=10000`;
+      setIsLoading(true);
+      let res = `http://localhost:8080/dashboard?sort=apr&cursor=9999999`;
       let response = await fetch(res);
       let aprData = await response.json();
-      setFirstPoolList(aprData.data); // 👈 서버에서 데이터를 받아서 담음
-      setIsLoading(false); // 데이터를 다 불러왔으면 로딩중 끝
+      setFirstPoolList(aprData.data);
+      setIsLoading(false);
     };
     poolData();
   }, []);
-  // 👆👆👆 스크롤시 데이터를 중복으로 불러오기에 일단 첫번째 호출 후 랜더링
-
-  console.log("poolList 첫번째", poolList);
 
   const poolSaveData = async () => {
-    // 서버에서 데이터를 추가로 받아오는 함수 (비동기처리)
-
-    setIsLoading(true); // 데이터를 불러오는중에는 로딩중 표시
+    setIsLoading(true);
     let res = `http://localhost:8080/dashboard?sort=apr&cursor=${nextCursorData}`;
     let response = await fetch(res);
     let aprData = await response.json();
 
     for (let i = 0; i < aprData.data.length; i++) {
       setNextCursorData(aprData.data[i].apr);
-    } // 👆 반복문을 돌려서 apr의 값 = 커서위치를 api주소로 반환
-    setSavePoolList([...aprData.data]); // 👈 커서위치당 불러온 데이터 저장공간
+    }
+    setSavePoolList([...aprData.data]);
     setPoolList([...poolList, ...savePoolList]);
-    // 👆 랜더링 해주는 배열 담기는 순서대로 누적되어 출력
-
-    setIsLoading(false); // 데이터를 다 불러왔으면 로딩중 끝
+    setIsLoading(false);
   };
-  console.log("스크롤", nextCursorData);
-  console.log("저장공간", savePoolList);
-  console.log("poolList 두번째", poolList);
 
   const infiniteScroll = useCallback(() => {
-    //스크롤 높이를 감지해서 👉 조건에 만족하면 poolSaveData 함수 호출
     let scrollHeight = Math.max(
       document.documentElement.scrollHeight,
       document.body.scrollHeight
@@ -60,7 +49,7 @@ const AprMain = () => {
     );
     let clientHeight = document.documentElement.clientHeight;
 
-    scrollHeight -= 95; // 스크롤이 맨 끝 지점(95)에 왔을때
+    scrollHeight -= 95;
 
     if (scrollTop + clientHeight >= scrollHeight && isLoading === false) {
       poolSaveData();
@@ -68,8 +57,8 @@ const AprMain = () => {
   }, [isLoading]);
 
   useEffect(() => {
-    window.addEventListener("scroll", infiniteScroll, true); // 👈 스크롤 이벤트 등록
-    return () => window.removeEventListener("scroll", infiniteScroll, true); // 👈 스크롤 이벤트 삭제
+    window.addEventListener("scroll", infiniteScroll, true);
+    return () => window.removeEventListener("scroll", infiniteScroll, true);
   }, [infiniteScroll]);
 
   return (
@@ -91,8 +80,6 @@ const AprMain = () => {
                 <div className="pool_link">Link</div>
               </div>
               <div>
-                {/* 👇 첫번째 호출은 poolList에 아무것도 없으므로 firstPoolList를 보여준다
-                두번째 호출부터는 poolList에 값이 생기므로 정삭적으로 출력! */}
                 {(poolList.length === 0 ? firstPoolList : poolList).map(
                   (list, index) => (
                     <AprList

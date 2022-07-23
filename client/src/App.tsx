@@ -12,7 +12,6 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Main />} />
-
           <Route path="/" element={<AprNav />} />
           <Route path="/pool" element={<AprMain />} />
           <Route path="/tvl" element={<TvlMain />} />

@@ -26,7 +26,7 @@ const AprList: FC<AprListProps> = ({
 }) => {
   let tvlString = tvl.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   let aprString = apr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // tvl, apr 1,000단위마다 쉼표찍어주기
+
   return (
     <div className="pool_list_wrap">
       <div className="pool_list_title"></div>

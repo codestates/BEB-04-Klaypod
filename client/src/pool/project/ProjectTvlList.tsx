@@ -11,7 +11,6 @@ export interface ProjectTvlListProps {
 
 const ProjectTvlList: FC<ProjectTvlListProps> = ({ name, logo, tvl, url }) => {
   let tvlString = tvl.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // tvl 1,000단위마다 쉼표찍어주기
 
   return (
     <div className="pool_list_wrap">
