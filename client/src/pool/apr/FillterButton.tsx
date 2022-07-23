@@ -4,7 +4,7 @@ import "../../styles/FillterButton.css";
 const FillterButton = () => {
   return (
     <div className="filter_btn_item">
-      <Link to="/pool">
+      <Link to="/apr">
         <li className="filter_btn">수익률순</li>
       </Link>
       <Link to="/tvl">

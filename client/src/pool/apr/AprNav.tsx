@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
+import WalletConnect from "../../wallet/WalletConnect";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import "../../styles/AprNav.css";
 
@@ -8,7 +9,12 @@ export interface onClickProps {
   Connect?: any;
 }
 
-const AprNav: FC<onClickProps> = () => {
+const AprNav: FC<onClickProps> = ({ Connect, account }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const switchModal = () => {
+    setModalOpen((check: boolean) => !check);
+  };
   return (
     <>
       <div className="pool_nav_wrapper clearfix">
@@ -37,7 +43,15 @@ const AprNav: FC<onClickProps> = () => {
           <Link to="#">
             <li className="pool_header_menu">Docs</li>
           </Link>
-          <li className="pool_header_menu pool_wallet_icon">
+          <li
+            className="pool_header_menu pool_wallet_icon"
+            onClick={switchModal}
+          >
+            <WalletConnect
+              modalOpen={modalOpen}
+              account={account}
+              onClickConnect={Connect}
+            />
             <MdOutlineAccountBalanceWallet />
           </li>
         </div>

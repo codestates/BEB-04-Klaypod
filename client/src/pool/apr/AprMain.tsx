@@ -1,11 +1,12 @@
-import { useEffect, useState, useCallback } from "react";
+import { FC, useEffect, useState, useCallback } from "react";
 import "../../styles/AprMain.css";
 import AprList from "./AprList";
 import { AprListProps } from "./AprList";
 import FillterButton from "./FillterButton";
 import AprNav from "./AprNav";
+import { onClickProps } from "./AprNav";
 
-const AprMain = () => {
+const AprMain: FC<onClickProps> = ({ account, Connect }) => {
   const [firstPoolList, setFirstPoolList] = useState<AprListProps[]>([]);
   const [poolList, setPoolList] = useState<AprListProps[]>([]);
   const [nextCursorData, setNextCursorData] = useState<number[]>([]);
@@ -63,7 +64,7 @@ const AprMain = () => {
 
   return (
     <>
-      <AprNav />
+      <AprNav account={account} Connect={Connect} />
       <div className="pool_wrapper">
         <div className="pool_container">
           <div className="pool_title">

@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import "../../styles/AprMain.css";
 import { AprListProps } from "../apr/AprList";
 import ProjectTvlList from "./ProjectTvlList";
 import FillterButton from "../apr/FillterButton";
 import AprNav from "../apr/AprNav";
+import { onClickProps } from "../apr/AprNav";
 
-const ProjectTvlMain = () => {
+const ProjectTvlMain: FC<onClickProps> = ({ Connect, account }) => {
   const [projectList, setProjectList] = useState<AprListProps[]>([]);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const ProjectTvlMain = () => {
 
   return (
     <>
-      <AprNav />
+      <AprNav account={account} Connect={Connect} />
       <div className="pool_wrapper">
         <div className="pool_container">
           <div className="pool_title">

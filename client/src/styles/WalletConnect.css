@@ -1,0 +1,99 @@
+.modal_true {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+.modal_true.modal_background {
+  display: flex;
+  animation: modal-bg-show 0.3s;
+}
+
+.modal_wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+  max-width: 20rem;
+  background-color: #555;
+  animation: modal-show 0.3s;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.modal_cancle {
+  display: flex;
+  margin-top: -2rem;
+  margin-left: 16rem;
+  color: #ddd;
+}
+
+.modal_cancle:hover {
+  cursor: pointer;
+  color: #777;
+}
+.modal_container {
+  flex-direction: column;
+  font-weight: 700;
+}
+.modal_connect {
+  background-color: #248277;
+  color: #ddd;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  border-radius: 1.4rem;
+}
+
+.modal_connect:hover {
+  cursor: pointer;
+  background-color: #469d89;
+}
+
+.wallet_ok_connect {
+  background-color: #78c6a3;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  border-radius: 1.4rem;
+}
+
+.modal_img {
+  margin: 1rem;
+}
+
+.modal_img_klip {
+  margin: 0.7rem;
+}
+
+.modal_text {
+  margin-top: -4rem;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
