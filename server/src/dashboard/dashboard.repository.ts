@@ -66,7 +66,8 @@ export class DashboardRepository {
       if (hasMorePairs) {
         // 다음 cursor 값을 기억해둔다
         const nextCursorPair = result[limit - 1];
-        nextCursor = sort === 'tvl' ? nextCursor.tvl : sort === 'apr' ? nextCursorPair.apr : null;
+        nextCursor =
+          sort === 'tvl' ? nextCursorPair.tvl : sort === 'apr' ? nextCursorPair.apr : null;
         result.pop();
       }
 
