@@ -23,3 +23,21 @@
 .clearfix:after {
   clear: both;
 }
+
+.swal-modal {
+  border: 10px solid #248277;
+  border-radius: 2rem;
+  width: 25rem;
+}
+
+.swal-button {
+  background-color: #248277;
+  border-radius: 1rem;
+  margin-right: 8.4rem;
+}
+
+.swal-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #248277;
+}

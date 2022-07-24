@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import WalletConnect from "../../wallet/WalletConnect";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import "../../styles/AprNav.css";
+import swal from "sweetalert";
 
 export interface onClickProps {
-  account?: any;
-  Connect?: any;
+  account: string;
+  Connect: any;
 }
 
 const AprNav: FC<onClickProps> = ({ Connect, account }) => {
@@ -14,6 +15,13 @@ const AprNav: FC<onClickProps> = ({ Connect, account }) => {
 
   const switchModal = () => {
     setModalOpen((check: boolean) => !check);
+  };
+
+  const walletSwal = () => {
+    swal({
+      text: "지갑을 연결하세요!",
+      icon: "warning",
+    });
   };
   return (
     <>
@@ -37,9 +45,18 @@ const AprNav: FC<onClickProps> = ({ Connect, account }) => {
           <Link to="/staking">
             <li className="pool_header_menu">Staking</li>
           </Link>
-          <Link to="/wallet">
-            <li className="pool_header_menu">Wallet</li>
-          </Link>
+          {account ? (
+            <Link to="/wallet">
+              <li className="pool_header_menu">Wallet</li>
+            </Link>
+          ) : (
+            <Link to="#">
+              <li className="pool_header_menu" onClick={walletSwal}>
+                Wallet
+              </li>
+            </Link>
+          )}
+
           <Link to="#">
             <li className="pool_header_menu">Docs</li>
           </Link>

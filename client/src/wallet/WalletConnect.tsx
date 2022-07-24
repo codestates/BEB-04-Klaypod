@@ -21,7 +21,7 @@ const WalletConnect: FC<WalletConnectProps> = ({
             <div className="wallet_ok_connect">
               <img
                 className="modal_img"
-                src="https://gateway.pinata.cloud/ipfs/QmS9BUPfHHiSY4CT6WGyEGrUb8KCj7Ro8BPtZLT7VFDwgM"
+                src="https://gateway.pinata.cloud/ipfs/QmQ3r111nAQanHNbeswS87AYzNWWfMQ6h19tbpR5fFNt2E"
                 width="40"
                 height="40"
                 alt=""
@@ -32,7 +32,7 @@ const WalletConnect: FC<WalletConnectProps> = ({
             <div className="modal_connect">
               <img
                 className="modal_img"
-                src="https://gateway.pinata.cloud/ipfs/QmS9BUPfHHiSY4CT6WGyEGrUb8KCj7Ro8BPtZLT7VFDwgM"
+                src="https://gateway.pinata.cloud/ipfs/QmQ3r111nAQanHNbeswS87AYzNWWfMQ6h19tbpR5fFNt2E"
                 width="40"
                 height="40"
                 alt=""

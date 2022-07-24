@@ -3,13 +3,15 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import Caver from "caver-js";
 import Main from "./main/Main";
-import AprNav from "./pool/apr/AprNav";
 import AprMain from "./pool/apr/AprMain";
 import TvlMain from "./pool/tvl/TvlMain";
 import ProjectTvlMain from "./pool/project/ProjectTvlMain";
+import Wallet from "./wallet/Wallet";
+import swal from "sweetalert";
 
 function App() {
   const [account, setAccount] = useState<string>("");
+  const [balance, setBalance] = useState<string>("");
 
   const Connect = async () => {
     if (typeof window.klaytn !== "undefined") {
@@ -18,13 +20,18 @@ function App() {
 
     try {
       const accounts = await window.klaytn.enable();
-      const account = window.klaytn.selectedAddress;
+      const accountAddress = window.klaytn.selectedAddress;
       setAccount(accounts);
       const caver = new Caver(window.klaytn);
-      const balance = await caver.klay.getBalance(account);
+      const accountBalance = await caver.klay.getBalance(accountAddress);
+      setBalance(accountBalance);
     } catch (error) {
       console.error(error);
     }
+    swal({
+      text: "Kaikas 지갑 연결 완료!",
+      icon: "success",
+    });
   };
 
   return (
@@ -43,6 +50,12 @@ function App() {
           <Route
             path="/project"
             element={<ProjectTvlMain account={account} Connect={Connect} />}
+          />
+          <Route
+            path="/wallet"
+            element={
+              <Wallet account={account} Connect={Connect} balance={balance} />
+            }
           />
         </Routes>
       </Router>
