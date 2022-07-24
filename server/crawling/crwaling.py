@@ -43,7 +43,7 @@ def get_kronosdao_tvl():
         wait = WebDriverWait(driver, 20)
         element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
                                                         '#root > div > div.jss2.false > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div > p.stake-card-metrics-value')))
-
+        time.sleep(3)
         tvl = driver.find_element(By.CSS_SELECTOR, '#root > div > div.jss2.false > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div > p.stake-card-metrics-value').text
         result = tvl.replace('$', '')
         result = stringToInteger(result) 
@@ -65,13 +65,9 @@ def get_defi_total_tvl(swap):
     if swap == "kokonutswap":
         driver.get(kokonutswap_uri)
         wait = WebDriverWait(driver, 10)
-        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#root > div.sc-ddnlvQ.juaBBL > '
-                                                                'div.sc-bBHxTw.eeUxaJ > div.sc-giYglK.iLdmPu > '
-                                                                'div:nth-child(2) > div.sc-kLwhqv.iPKQFl')))
+        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#root > div.sc-jaSCiF.hFBVCa > div.sc-bBHxTw.eeUxaJ > div.sc-giYglK.iLdmPu > div:nth-child(2) > div.sc-kLwhqv.iPKQFl')))
 
-        total_tvl = driver.find_element(By.CSS_SELECTOR, '#root > div.sc-ddnlvQ.juaBBL > '
-                                            'div.sc-bBHxTw.eeUxaJ > div.sc-giYglK.iLdmPu > '
-                                            'div:nth-child(2) > div.sc-kLwhqv.iPKQFl').text
+        total_tvl = driver.find_element(By.CSS_SELECTOR, '#root > div.sc-jaSCiF.hFBVCa > div.sc-bBHxTw.eeUxaJ > div.sc-giYglK.iLdmPu > div:nth-child(2) > div.sc-kLwhqv.iPKQFl').text
         result = total_tvl.replace('$', "")
         result = stringToInteger(result)
         return result
@@ -112,9 +108,9 @@ def get_paladex_tvl():
         time.sleep(10)
         wait = WebDriverWait(driver, 20)
         element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
-                                                        '#root > div.sc-dBUBXv.euGXoO > div > div.sc-kjkawG.bALuTR > div.sc-fkFYRF.kqpjvS > div:nth-child(2) > div > div > div > span')))
-
-        tvl = driver.find_element(By.CSS_SELECTOR, '#root > div.sc-dBUBXv.euGXoO > div > div.sc-kjkawG.bALuTR > div.sc-fkFYRF.kqpjvS > div:nth-child(2) > div > div > div > span').text
+                                                        '#root > div.sc-cykDdr.kXuprC > div > div.sc-gTeHfO.jLuFws > div.sc-llTkbl.gbLzrp > div:nth-child(2)')))
+        time.sleep(3)
+        tvl = driver.find_element(By.CSS_SELECTOR, '#root > div.sc-cykDdr.kXuprC > div > div.sc-gTeHfO.jLuFws > div.sc-llTkbl.gbLzrp > div:nth-child(2) > div > div > div > span').text
         result = stringToInteger(tvl) 
         print('paladex tvl:',result)
         return result
@@ -154,7 +150,7 @@ def get_kokoa_tvl():
         wait = WebDriverWait(driver, 20)
         element = wait.until(EC.presence_of_element_located((By.XPATH,
                                                         '//*[@id="app"]/main/section/div[2]/div[1]/div[2]/p/span')))
-        time.sleep(3)
+        time.sleep(10)
         tvl = driver.execute_script('return document.getElementsByClassName("price")[0].children[0].textContent')
         print('kokoa :',tvl)
         result = stringToInteger(tvl) 
@@ -351,13 +347,14 @@ def run_kokonutswap_crawl():
     driver.get('https://kokonutswap.finance/pools')
     wait = WebDriverWait(driver, 10)
     wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
-                                           '#root > div.sc-ddnlvQ.juaBBL > div.sc-jWUzzU.dnVhSJ > div.sc-dUbtfd.lAFdh > div.pc > div > div:nth-child(2) > div:nth-child(1) > div.sc-dkYRCH.eCPwII > a > button')))
-    list_length = driver.execute_script('return document.getElementsByClassName("sc-dkYRCH iaECIk").length')
+                                           '#root > div.sc-jaSCiF.hFBVCa > div.sc-jWUzzU.dnVhSJ > div.sc-dUbtfd.lAFdh > div.pc > div > div:nth-child(3) > div:nth-child(1) > div.sc-dkYRCH.eCPzQu > div.sc-XxNYO.eLbIyN')))
+    time.sleep(3)
+    # 페어 갯수
+    list_length = driver.execute_script('return document.getElementsByClassName("sc-evcjhq fOevNH")[0].children.length')
     time.sleep(0.4)
     try:
         for i in range(2, list_length + 2):
-            column = '#root > div.sc-ddnlvQ.juaBBL > div.sc-jWUzzU.dnVhSJ > div.sc-dUbtfd.lAFdh >' \
-                     ' div.pc > div > div:nth-child({0}) > div:nth-child(1) > '.format(i)
+            column = '#root > div.sc-jaSCiF.hFBVCa > div.sc-jWUzzU.dnVhSJ > div.sc-dUbtfd.lAFdh > div.pc > div > div:nth-child({0}) > div:nth-child(1) >  '.format(i)
             length = driver.execute_script(
                 'return document.getElementsByClassName("sc-dkYRCH iaECIk")[{0}].getElementsByTagName("img").length'.format(
                     i - 2))
@@ -367,6 +364,8 @@ def run_kokonutswap_crawl():
                     'return document.getElementsByClassName("sc-dkYRCH iaECIk")[2].getElementsByTagName("img")[{0}].getAttribute(\'src\')'.format(
                         j))
                 logo.append('https:/kokonutswap.finance' + img_src)
+                # '#root > div.sc-ddnlvQ.juaBBL > div.sc-jWUzzU.dnVhSJ > div.sc-dUbtfd.lAFdh > div.pc > div > div:nth-child({0}) > div:nth-child(1) > '
+                # '#root > div.sc-jaSCiF.hFBVCa > div.sc-jWUzzU.dnVhSJ > div.sc-dUbtfd.lAFdh > div.pc > div > div:nth-child(2) > div:nth-child(1) > div.sc-dkYRCH.eCPzQu > div.sc-ilfuhL.fVkpWP'
             pair = driver.find_element(By.CSS_SELECTOR, column + 'div.sc-dkYRCH.eCPzQu > div.sc-ilfuhL.fVkpWP').text
             tvl = driver.find_element(By.CSS_SELECTOR, column + 'div.sc-dkYRCH.eCPvQm').text
             apr = driver.find_element(By.CSS_SELECTOR, column + 'div.sc-dkYRCH.iaECFY > div').text
@@ -385,6 +384,7 @@ def run_kokonutswap_crawl():
         print(e.msg)
     finally:
         driver.quit()
+        print(len(data_set))
         return data_set
 
 
@@ -412,7 +412,7 @@ def create_project_collection():
              "url": "https://klayswap.com/exchange/pool", "isActive": True, "createAt": str(today.astimezone(KST)), "tvl": get_defi_total_tvl('klayswap')},
             {"name": "KokonutSwap", "logo": "https://cdn-images-1.medium.com/max/280/1*1Ah4r6CMB8p1UXp_AMmdBQ@2x.jpeg",
              "url": "https://kokonutswap.finance/pools", "isActive": True, "createAt": str(today.astimezone(KST)), 'tvl': get_defi_total_tvl('kokonutswap')},
-            {"name": "ClaimSwap", "logo": "https://mobile.twitter.com/claimswap/photo",
+            {"name": "ClaimSwap", "logo": "https://raw.githubusercontent.com/claimswap/claim-content/master/images/token/CLA.png",
              "url": "https://app.claimswap.org/farm", "isActive": True, "createAt": str(today.astimezone(KST)), 'tvl': get_defi_total_tvl('claimswap')},
             {"name": "MeshSwap", "logo": "https://meshswap.fi/img/logo/logo.svg",
              "url": "https://meshswap.fi/", "isActive": True, "createAt": str(today.astimezone(KST)), 'tvl': get_meshswap_tvl()},
