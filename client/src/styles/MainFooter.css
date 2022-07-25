@@ -4,6 +4,80 @@
   position: relative;
 }
 
+.main_footer_title_wrapper {
+  transform: translateY(300%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.main_footer_title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #0b5757;
+}
+
+.main_footer_text {
+  transform: translateY(70%);
+  font-size: 1.2rem;
+  color: #036666;
+}
+
+.main_footer_icon {
+  transform: translateY(400%);
+  text-align: center;
+  font-size: 4rem;
+}
+
+.main_footer_icon_gap {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  color: #fff;
+}
+
+.discord_icon {
+  background-color: rgb(83 114 190);
+  padding: 8px;
+  border-radius: 1rem;
+}
+
+.discord_icon:hover {
+  background-color: rgb(114, 138, 199);
+  cursor: pointer;
+}
+
+.github_icon {
+  background-color: #111;
+  padding: 8px;
+  border-radius: 1rem;
+}
+
+.github_icon:hover {
+  background-color: #444;
+  cursor: pointer;
+}
+
+.email_icon {
+  background-color: #56ab91;
+  padding: 8px;
+  border-radius: 1rem;
+}
+
+.email_icon:hover {
+  background-color: #67b99a;
+  cursor: pointer;
+}
+
+.docs_icon {
+  background-color: #036666;
+  padding: 8px;
+  border-radius: 1rem;
+}
+
+.docs_icon:hover {
+  background-color: #358f80;
+  cursor: pointer;
+}
+
 .main_footer_container {
   background-color: rgba(255, 255, 255, 0.6);
   width: 100%;
@@ -56,22 +130,24 @@
   top: 85%;
 }
 
-.main_footer_icon {
+.main_footer_hover:hover {
+  color: #67b99a;
+  cursor: pointer;
+}
+
+.main_footer_under_icon {
   position: absolute;
   font-size: 3rem;
   left: 75%;
   top: 45%;
 }
 
-.main_footer_icon_gap {
+.main_footer_under_icon_gap {
   margin-left: 3rem;
-}
-.main_footer_icon_gap:hover {
-  color: #67b99a;
-  cursor: pointer;
+  color: #555;
 }
 
-.main_footer_hover:hover {
+.main_footer_under_icon_gap:hover {
   color: #67b99a;
   cursor: pointer;
 }
@@ -89,7 +165,7 @@
   .main_footer_logo_img {
     left: 14.5%;
   }
-  .main_footer_icon {
+  .main_footer_under_icon {
     left: 72%;
   }
 }
@@ -98,7 +174,7 @@
   .main_footer_logo_img {
     left: 16%;
   }
-  .main_footer_icon {
+  .main_footer_under_icon {
     left: 68%;
   }
 }
@@ -107,7 +183,7 @@
   .main_footer_logo_img {
     left: 17.2%;
   }
-  .main_footer_icon {
+  .main_footer_under_icon {
     left: 66%;
   }
 }
@@ -116,7 +192,7 @@
   .main_footer_logo_img {
     left: 19.2%;
   }
-  .main_footer_icon {
+  .main_footer_under_icon {
     left: 62%;
   }
 }
@@ -125,7 +201,7 @@
   .main_footer_logo_img {
     left: 23%;
   }
-  .main_footer_icon {
+  .main_footer_under_icon {
     left: 56%;
   }
 }
@@ -136,7 +212,7 @@
     top: 35%;
     left: 10%;
   }
-  .main_footer_icon {
+  .main_footer_under_icon {
     left: 48%;
   }
 }
@@ -148,5 +224,41 @@
 
   .main_footer_contact {
     display: none;
+  }
+
+  .main_footer_under_icon {
+    left: 35%;
+  }
+}
+
+/* height 반응형 */
+
+@media (max-height: 900px) {
+}
+
+@media (max-height: 850px) {
+  .main_footer_title_wrapper {
+    transform: translateY(220%);
+  }
+  .main_footer_icon {
+    transform: translateY(320%);
+  }
+}
+
+@media (max-height: 750px) {
+  .main_footer_title_wrapper {
+    transform: translateY(200%);
+  }
+  .main_footer_icon {
+    transform: translateY(300%);
+  }
+}
+
+@media (max-height: 700px) {
+  .main_footer_title_wrapper {
+    transform: translateY(100%);
+  }
+  .main_footer_icon {
+    transform: translateY(200%);
   }
 }

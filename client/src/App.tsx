@@ -6,7 +6,7 @@ import Main from "./main/Main";
 import AprMain from "./pool/apr/AprMain";
 import TvlMain from "./pool/tvl/TvlMain";
 import ProjectTvlMain from "./pool/project/ProjectTvlMain";
-import Wallet from "./wallet/Wallet";
+import Wallet from "./pages/wallet/Wallet";
 import swal from "sweetalert";
 
 function App() {

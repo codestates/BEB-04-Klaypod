@@ -1,6 +1,7 @@
 import MainNav from "./MainNav";
 import MainPage from "./MainPage";
 import MainFooter from "./MainFooter";
+
 import "../styles/Main.css";
 
 function Main() {
@@ -17,7 +18,7 @@ function Main() {
             <MainPage />
           </div>
           <div className="main_page_one">
-            <div className="main_page_one_title">KlayPod 에서 스캔하는 DEX</div>
+            <div className="main_page_one_title">KLAYPOD SCAN DEX List</div>
             <img
               className="main_page_one_img"
               src="https://gateway.pinata.cloud/ipfs/QmYATGeFczH5zSFtqWNrZAbXMRsRPVHXVeFuRJZwnXKwDC"

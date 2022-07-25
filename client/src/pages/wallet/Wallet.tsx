@@ -1,6 +1,6 @@
 import { FC } from "react";
-import AprNav from "../pool/apr/AprNav";
-import "../styles/Wallet.css";
+import AprNav from "../../pool/apr/AprNav";
+import "../../styles/Wallet.css";
 import {
   MdOutlineAccountBalanceWallet,
   MdAutorenew,

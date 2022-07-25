@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import WalletConnect from "../../wallet/WalletConnect";
+import WalletConnect from "../../pages/wallet/WalletConnect";
 import { MdOutlineAccountBalanceWallet } from "react-icons/md";
 import "../../styles/AprNav.css";
 import swal from "sweetalert";

@@ -144,8 +144,7 @@
   transform: translateY(9rem);
   color: #fff;
   font-size: 2.5rem;
-  font-family: "Cafe24Ssurround";
-  text-shadow: 0 0 5px #99e2b4;
+  font-weight: 600;
 }
 
 .main_page_one_img {

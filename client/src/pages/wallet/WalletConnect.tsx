@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "../styles/WalletConnect.css";
+import "../../styles/WalletConnect.css";
 
 interface WalletConnectProps {
   modalOpen: any;
