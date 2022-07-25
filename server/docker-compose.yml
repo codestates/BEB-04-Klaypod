@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  api:
+    container_name: 'klaypod_api_prod'
+    image: 'arh714/klaypod-api-prod:1.0.0'
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    entrypoint: ['node', 'dist/main.js']
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - src/config/env/.production.env
+    command: node dist/main.js
+    restart: unless-stopped
