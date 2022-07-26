@@ -16,7 +16,7 @@ const AprMain: FC<onClickProps> = ({ account, Connect }) => {
   useEffect(() => {
     const poolData = async () => {
       setIsLoading(true);
-      let res = `http://3.82.205.241:8080/dashboard/yield?sort=apr&cursor=9999999`;
+      let res = `https://api.klaypod.com/dashboard/yield?sort=apr&cursor=9999999`;
       let response = await fetch(res);
       let aprData = await response.json();
       setFirstPoolList(aprData.data);
@@ -27,7 +27,7 @@ const AprMain: FC<onClickProps> = ({ account, Connect }) => {
 
   const poolSaveData = async () => {
     setIsLoading(true);
-    let res = `http://3.82.205.241:8080/dashboard/yield?sort=apr&cursor=${nextCursorData}`;
+    let res = `https://api.klaypod.com/dashboard/yield?sort=apr&cursor=${nextCursorData}`;
     let response = await fetch(res);
     let aprData = await response.json();
 

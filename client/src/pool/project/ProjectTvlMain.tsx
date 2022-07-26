@@ -11,7 +11,7 @@ const ProjectTvlMain: FC<onClickProps> = ({ Connect, account }) => {
 
   useEffect(() => {
     const poolData = async () => {
-      let res = `http://54.67.110.239:8080/dashboard/defi`;
+      let res = `https://api.klaypod.com/dashboard/defi`;
       let response = await fetch(res);
       let projectData = await response.json();
       setProjectList(projectData.data);
