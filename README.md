@@ -87,4 +87,12 @@ APY / TVL 순으로 찾아주는(Search) 프로젝트입니다
 
 
 ## 기술 스택
-<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+<div align=center>
+<img src="https://img.shields.io/badge/Github-FFFFFF?style=for-the-badge&logo=GitHub&logoColor=black"> 
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=black">
+<img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=Discord&logoColor=black">
+<img src="https://img.shields.io/badge/Miro-FFFFFF?style=for-the-badge&logo=Miro&logoColor=black">
+<img src="https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=Zoom&logoColor=black">
+
+<img src="https://img.shields.io/badge/Notion-FFFFFF?style=for-the-badge&logo=Notion&logoColor=black">
+</div>
