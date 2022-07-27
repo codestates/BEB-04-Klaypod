@@ -1,0 +1,165 @@
+.staknig_wrapper {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.staknig_title_text {
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.staking_title_text_color {
+  color: rgb(245, 222, 90);
+}
+
+.staknig_container_big {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.staknig_item {
+  background-color: #777;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 1.4rem;
+  box-shadow: 0px 0px 10px #111;
+  padding-bottom: 7rem;
+}
+
+.staknig_from {
+  display: flex;
+  white-space: nowrap;
+}
+
+.staknig_img_pod {
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 3px;
+  border: 2px solid#036666;
+  transform: translate(50%, 80%);
+}
+
+.staknig_from_title {
+  font-size: 1.2rem;
+  transform: translate(35%, 105%);
+  color: #99e2b4;
+}
+
+.staknig_from_text {
+  font-size: 1.2rem;
+  transform: translate(-40%, 200%);
+}
+
+.staknig_from_num {
+  font-size: 1.4rem;
+  transform: translate(-215%, 300%);
+}
+
+.staknig_from_input {
+  transform: translate(0%, 300%);
+  background-color: #99e2b4;
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 10px #111;
+}
+
+.staknig_from_input:hover {
+  box-shadow: 0px 0px 5px #fff;
+}
+
+.staknig_to {
+  display: flex;
+  white-space: nowrap;
+}
+
+.staknig_to_num {
+  font-size: 0.8rem;
+  transform: translate(60%, 900%);
+}
+
+.staknig_container_two {
+  top: 42%;
+  left: 70%;
+  transform: translate(110%, -115%);
+  text-align: center;
+  white-space: nowrap;
+  padding: 1rem;
+  border-radius: 1.4rem;
+  background-color: rgb(161, 90, 77);
+  box-shadow: 0px 0px 10px #111;
+}
+
+.staknig_fee {
+  font-size: 2rem;
+  display: flex;
+}
+
+.staknig_fee_title {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  color: rgb(245, 222, 90);
+}
+
+.staknig_fee_icon {
+  color: rgb(245, 222, 90);
+  padding: 1rem;
+  transform: translate(20%, 0%);
+}
+
+.staknig_container_three {
+  position: absolute;
+  top: 40%;
+  left: 100%;
+  transform: translate(-34%, 19%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.staknig_btn_item {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  font-size: 1.6rem;
+}
+
+.staknig_btn_container {
+  background-color: #777;
+  color: #fff;
+  padding: 2.5rem 5.5rem 2.5rem 5.5rem;
+  font-weight: 700;
+  border-radius: 1.4rem;
+  margin-bottom: 3rem;
+  box-shadow: 0px 0px 10px #111;
+}
+
+.staknig_btn {
+  border-radius: 1.4rem;
+  background-color: #036666;
+  box-shadow: 0px 0px 10px #111;
+  padding: 2rem 2rem 2rem 4rem;
+}
+
+.staknig_btn_icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  transform: translate(-520%, 17%);
+}
+
+.staknig_btn:hover {
+  box-shadow: 0px 0px 5px #fff;
+  cursor: pointer;
+}
+
+.staknig_btn_text {
+  color: #990c2f;
+  font-size: 1rem;
+  transform: translate(0%, 50%);
+}
