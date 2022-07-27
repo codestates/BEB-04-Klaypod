@@ -472,6 +472,48 @@ def create_project_collection():
         ]
     )
 
+def run_ufoswap_crawl():
+    try:
+        ufoswap_id = klaypod_collection.projects.find_one({"name": "UFOSwap"}, {"_id": 1})
+        project_id = ObjectId(ufoswap_id['_id'])
+        driver = set_chrome_driver()
+        driver.get('https://ufoswap.fi/#/borrow')
+        wait = WebDriverWait(driver, 20)
+        element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,'#root > div.VuB39hg3Il0A843FDJJh > div.F1oaiJEEA2GtDeODgiPE.css-j7qwjs > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.css-1cwz49y > div > table > tbody > tr.jss5.MuiTableRow-root.css-1gqug66 > th > div > div:nth-child(3) > div.AHFzqBdg2lGDYjbYEYRb')))
+        print(element)
+        time.sleep(2)
+        data_set =[]
+
+        logo=[]
+        for j in range(0,2):
+            time.sleep(2)
+            logo_data = driver.execute_script("return document.getElementsByClassName('uARzPy9TfxEsk4SoLTLs')[0].children[{0}].children[0].getAttribute('src')".format(j))
+            logo.append(logo_data)
+
+
+        PAIR = driver.find_element(By.XPATH,'//*[@id="root"]/div[4]/div[2]/div[3]/div/table/tbody/tr[1]/th/div/div[3]/div[2]').text
+        APR = driver.find_element(By.XPATH,'//*[@id="root"]/div[4]/div[2]/div[3]/div/table/tbody/tr[1]/td[4]').text
+        TVL = driver.find_element(By.XPATH,"//*[@id='root']/div[4]/div[2]/div[3]/div/table/tbody/tr[1]/td[1]").text
+
+        print(PAIR.replace(" LP",""), APR,TVL)
+        data_set.append({
+            "pair": PAIR.replace(" LP",""),
+            "logo":logo,
+            "APR":float(APR.replace(" %","")),
+            "TVL":stringToInteger(TVL.replace("$ ","")),
+            "isActive": True,
+            "createAt": str(today.astimezone(KST)),
+            "project_id": project_id
+        })
+        pprint.pprint(data_set)
+    except NoSuchElementException as e:
+        print(e.msg)
+    finally:
+        driver.quit()
+        print(len(data_set))
+        return data_set
+    
+
 def get_klaymore_tvl():
     try:
         driver = set_chrome_driver()
@@ -522,4 +564,7 @@ if __name__ == '__main__':
     insert_data_set(run_kokonutswap_crawl())
     insert_data_set(run_claimswap_crawl())
     insert_data_set(run_pala_crawl())
+    insert_data_set(run_ufoswap_crawl())
+
+
 
