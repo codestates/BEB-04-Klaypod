@@ -8,6 +8,7 @@ import TvlMain from "./pool/tvl/TvlMain";
 import ProjectTvlMain from "./pool/project/ProjectTvlMain";
 import Wallet from "./pages/wallet/Wallet";
 import swal from "sweetalert";
+import Swap from "./pages/swap/Swap";
 
 function App() {
   const [account, setAccount] = useState<string>("");
@@ -55,6 +56,12 @@ function App() {
             path="/wallet"
             element={
               <Wallet account={account} Connect={Connect} balance={balance} />
+            }
+          />
+          <Route
+            path="/swap"
+            element={
+              <Swap account={account} Connect={Connect} balance={balance} />
             }
           />
         </Routes>

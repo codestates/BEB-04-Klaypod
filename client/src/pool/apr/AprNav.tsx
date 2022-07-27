@@ -39,12 +39,28 @@ const AprNav: FC<onClickProps> = ({ Connect, account }) => {
           </Link>
         </div>
         <div className="pool_header_items">
-          <Link to="/swap">
-            <li className="pool_header_menu">Swap</li>
-          </Link>
-          <Link to="/staking">
-            <li className="pool_header_menu">Staking</li>
-          </Link>
+          {account ? (
+            <Link to="/swap">
+              <li className="pool_header_menu">Swap</li>
+            </Link>
+          ) : (
+            <Link to="#">
+              <li className="pool_header_menu" onClick={walletSwal}>
+                Swap
+              </li>
+            </Link>
+          )}
+          {account ? (
+            <Link to="/staking">
+              <li className="pool_header_menu">Staking</li>
+            </Link>
+          ) : (
+            <Link to="#">
+              <li className="pool_header_menu" onClick={walletSwal}>
+                Staking
+              </li>
+            </Link>
+          )}
           {account ? (
             <Link to="/wallet">
               <li className="pool_header_menu">Wallet</li>
