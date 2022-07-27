@@ -199,7 +199,47 @@ def get_meshswap_tvl():
     finally:
         driver.quit()
 
+def run_pala_crawl():
+    driver = set_chrome_driver()
+    driver.get('https://pala.world/dex/pool')
+    wait = WebDriverWait(driver, 20)
+    element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,'#MainSpace > div.sc-hTtIkV.leesqp > div:nth-child(3) > div.sc-gpxMCN.crQkUP > div.sc-cxalrY.cUdAB > div > div.sc-gfbRpc.bioSHt')))
+    print(element)
+    time.sleep(2)
+    try:
+        paladex_id = klaypod_collection.projects.find_one({"name": "PalaDex"}, {"_id": 1})
+        project_id = ObjectId(paladex_id['_id'])
 
+        length = driver.execute_script('return document.getElementsByClassName("sc-gfbRpc bioSHt").length')
+        length
+        data_set =[]
+        for i in range(0, length-1):
+            logo=[]
+            for j in range(0,2):
+                logo_data=driver.execute_script('return document.getElementsByClassName("sc-gfbRpc bioSHt")[{0}].children[{1}].getAttribute("src")'.format(i,j))
+                logo.append(logo_data)
+            PAIR = driver.find_element(By.CSS_SELECTOR,'#MainSpace > div.sc-hTtIkV.leesqp > div:nth-child({0}) > div.sc-gpxMCN.crQkUP > div.sc-cxalrY.cUdAB > div > div.sc-iLIByi.bZkPgn > div.sc-hIpXjV.cGUNji'.format(i+3)).text
+
+            APR = driver.find_element(By.CSS_SELECTOR,'#MainSpace > div.sc-hTtIkV.leesqp > div:nth-child({0}) > div.sc-gpxMCN.crQkUP > div.sc-cxalrY.kjGUrL > div > div.sc-yeoIj.fvgehE'.format(i+3)).text
+            TVL = driver.find_element(By.CSS_SELECTOR,'#MainSpace > div.sc-hTtIkV.leesqp > div:nth-child({0}) > div.sc-gpxMCN.crQkUP > div.sc-cxalrY.idMHBc > div > div'.format(i+3)).text
+            if(APR!= "-"):
+                data_set.append({
+                    "pair": PAIR,
+                    "logo":logo,
+                    "APR":float(APR),
+                    "TVL":stringToInteger(TVL),
+                    "isActive": True,
+                    "createAt": str(today.astimezone(KST)),
+                    "project_id": project_id
+
+                })
+    except NoSuchElementException as e:
+        print(e.msg)
+    finally:
+        driver.quit()
+        print(len(data_set))
+        return data_set
+    
 def run_klaySwap_crawl():
     try:
         klayswap_id = klaypod_collection.projects.find_one({"name": "KlaySwap"}, {"_id": 1})
@@ -481,4 +521,5 @@ if __name__ == '__main__':
     insert_data_set(run_klaySwap_crawl())
     insert_data_set(run_kokonutswap_crawl())
     insert_data_set(run_claimswap_crawl())
+    insert_data_set(run_pala_crawl())
 
