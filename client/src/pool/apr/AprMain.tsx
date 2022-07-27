@@ -68,7 +68,7 @@ const AprMain: FC<onClickProps> = ({ account, Connect }) => {
       <div className="pool_wrapper">
         <div className="pool_container">
           <div className="pool_title">
-            <div className="pool_title_notice">KLAYPOD Scan</div>
+            <div className="pool_title_notice">KLAYPOD SCAN</div>
             <img
               className="pool_title_notice_img"
               src="https://gateway.pinata.cloud/ipfs/QmX77ydLWPeQiX5EP4hYDcP88obd8FPoGJ6zy336uLchFo"

@@ -25,7 +25,7 @@ const ProjectTvlMain: FC<onClickProps> = ({ Connect, account }) => {
       <div className="project_wrapper">
         <div className="project_container">
           <div className="project_title">
-            <div className="project_title_notice">KLAYPOD Scan</div>
+            <div className="project_title_notice">KLAYPOD SCAN</div>
             <img
               className="pool_title_notice_img"
               src="https://gateway.pinata.cloud/ipfs/QmX77ydLWPeQiX5EP4hYDcP88obd8FPoGJ6zy336uLchFo"
