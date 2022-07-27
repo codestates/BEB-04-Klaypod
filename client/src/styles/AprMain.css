@@ -32,6 +32,12 @@
   white-space: nowrap;
 }
 
+.pool_title_notice_img {
+  margin-left: 36rem;
+  margin-top: -5rem;
+  transform: translateY(-15%);
+}
+
 .pool_list {
   width: 80%;
   margin: 0 auto;
@@ -76,11 +82,17 @@
   .pool_title_notice {
     padding-left: 12rem;
   }
+  .pool_title_notice_img {
+    margin-left: 34rem;
+  }
 }
 
 @media (max-width: 1450px) {
   .pool_title_notice {
     padding-left: 10rem;
+  }
+  .pool_title_notice_img {
+    margin-left: 32rem;
   }
 }
 
@@ -88,10 +100,16 @@
   .pool_title_notice {
     padding-left: 8rem;
   }
+  .pool_title_notice_img {
+    margin-left: 30rem;
+  }
 }
 
 @media (max-width: 1050px) {
   .pool_title_notice {
     padding-left: 6rem;
+  }
+  .pool_title_notice_img {
+    margin-left: 28rem;
   }
 }

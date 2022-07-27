@@ -51,7 +51,7 @@ function Main() {
               />
               <span className="main_page_two_title">Token Swap</span>
               <span className="main_page_two_text">
-                Klaytn 코인으로 KPD 토큰을 스왑하여
+                Klaytn 코인으로 POD 토큰을 스왑하여
                 <br />
                 KlayPod의 소유자가 되세요!
               </span>
@@ -66,7 +66,7 @@ function Main() {
               />
               <span className="main_page_two_title">Token Staking</span>
               <span className="main_page_two_text">
-                KlayPod의 KPD 토큰을 홀드하세요.
+                KlayPod의 POD 토큰을 홀드하세요.
                 <br />
                 스테이킹하여 수익을 얻으며
                 <br />
@@ -85,7 +85,7 @@ function Main() {
               <span className="main_page_two_text">
                 KlayPod의 DAO 참여자가 되세요.
                 <br />
-                KPD 토큰으로 거버넌스 권한을 얻으세요!
+                POD 토큰으로 거버넌스 권한을 얻으세요!
               </span>
             </li>
           </section>
