@@ -1,0 +1,158 @@
+.main_nav_wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.main_logo_container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.main_logo_text {
+  position: absolute;
+  left: 20%;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.4rem;
+  padding-top: 5rem;
+  z-index: 1;
+}
+
+.main_logo_img {
+  position: absolute;
+  left: 25%;
+  top: 2.2%;
+}
+
+.main_header_items {
+  align-items: center;
+}
+
+.main_nav_docs_btn {
+  position: absolute;
+  right: 29%;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+  z-index: 1;
+}
+
+.main_nav_docs_btn:hover {
+  color: #469d89;
+  cursor: pointer;
+}
+
+.main_nav_enter_btn {
+  position: absolute;
+  right: 20%;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem 0.6rem 1rem;
+  font-weight: 700;
+  border: 2px solid #67b99a;
+  border-radius: 2rem;
+  margin-top: 1.2rem;
+  z-index: 1;
+  box-shadow: 0px 0px 2px #fff;
+}
+
+.main_nav_enter_btn:hover {
+  box-shadow: 0px 0px 6px #fff;
+  background-color: #67b99a;
+  cursor: pointer;
+}
+
+@media (max-width: 1900px) {
+  .main_logo_img {
+    left: 25%;
+  }
+}
+
+@media (max-width: 1750px) {
+  .main_logo_text {
+    left: 18%;
+  }
+  .main_logo_img {
+    left: 23.5%;
+  }
+  .main_nav_docs_btn {
+    right: 30%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .main_logo_text {
+    left: 17%;
+  }
+  .main_logo_img {
+    left: 23%;
+  }
+  .main_nav_docs_btn {
+    right: 31%;
+  }
+}
+
+@media (max-width: 1450px) {
+  .main_logo_text {
+    left: 15%;
+  }
+  .main_logo_img {
+    left: 22%;
+  }
+  .main_nav_docs_btn {
+    right: 32.5%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main_logo_text {
+    left: 13%;
+  }
+  .main_logo_img {
+    left: 21%;
+  }
+  .main_nav_docs_btn {
+    right: 34%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .main_logo_text {
+    left: 11%;
+  }
+  .main_logo_img {
+    left: 20%;
+  }
+  .main_nav_docs_btn {
+    right: 36%;
+  }
+  .main_nav_enter_btn {
+    right: 18%;
+  }
+}
+
+@media (max-width: 900px) {
+  .main_logo_text {
+    margin-left: 0.5rem;
+  }
+  .main_logo_img {
+    left: 23%;
+  }
+  .main_nav_docs_btn {
+    display: none;
+  }
+  .main_nav_enter_btn {
+    right: 15%;
+  }
+}
+
+@media (max-width: 880px) {
+  .main_logo_text {
+    display: none;
+  }
+  .main_logo_img {
+    left: 10%;
+  }
+}
