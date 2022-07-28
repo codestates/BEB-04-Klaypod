@@ -9,6 +9,8 @@ import ProjectTvlMain from "./pool/project/ProjectTvlMain";
 import Wallet from "./pages/wallet/Wallet";
 import swal from "sweetalert";
 import Swap from "./pages/swap/Swap";
+import Staking from "./pages/staking/Staking";
+
 
 function App() {
   const [account, setAccount] = useState<string>("");
@@ -62,6 +64,12 @@ function App() {
             path="/swap"
             element={
               <Swap account={account} Connect={Connect} balance={balance} />
+            }
+          />
+          <Route
+            path="/staking"
+            element={
+              <Staking account={account} Connect={Connect} balance={balance} />
             }
           />
         </Routes>

@@ -472,6 +472,7 @@ def create_project_collection():
         ]
     )
 
+
 def run_ufoswap_crawl():
     try:
         ufoswap_id = klaypod_collection.projects.find_one({"name": "UFOSwap"}, {"_id": 1})
@@ -513,6 +514,7 @@ def run_ufoswap_crawl():
         print(len(data_set))
         return data_set
     
+
 
 def get_klaymore_tvl():
     try:
@@ -564,7 +566,7 @@ if __name__ == '__main__':
     insert_data_set(run_kokonutswap_crawl())
     insert_data_set(run_claimswap_crawl())
     insert_data_set(run_pala_crawl())
-    insert_data_set(run_ufoswap_crawl())
 
+    insert_data_set(run_ufoswap_crawl())
 
 
