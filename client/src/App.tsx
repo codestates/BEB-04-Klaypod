@@ -11,6 +11,7 @@ import swal from "sweetalert";
 import Swap from "./pages/swap/Swap";
 import Staking from "./pages/staking/Staking";
 
+
 function App() {
   const [account, setAccount] = useState<string>("");
   const [balance, setBalance] = useState<string>("");
