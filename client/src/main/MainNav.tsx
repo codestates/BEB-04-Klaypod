@@ -16,9 +16,13 @@ function MainNav() {
           />
         </div>
         <div className="main_header_items">
-          <Link to="#">
-            <div className="main_nav_docs_btn">Docs</div>
-          </Link>
+          <a
+            className="main_nav_docs_btn"
+            href="https://c-w.gitbook.io/klaypod/"
+            target="_blank"
+          >
+            Docs
+          </a>
           <Link to="/apr">
             <div className="main_nav_enter_btn">Enter App</div>
           </Link>

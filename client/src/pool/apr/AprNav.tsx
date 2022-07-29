@@ -72,10 +72,13 @@ const AprNav: FC<onClickProps> = ({ Connect, account }) => {
               </li>
             </Link>
           )}
-
-          <Link to="#">
-            <li className="pool_header_menu">Docs</li>
-          </Link>
+          <a
+            className="pool_header_menu"
+            href="https://c-w.gitbook.io/klaypod/"
+            target="_blank"
+          >
+            Docs
+          </a>
           <li
             className="pool_header_menu pool_wallet_icon"
             onClick={switchModal}

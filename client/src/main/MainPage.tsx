@@ -22,9 +22,13 @@ function MainPage() {
         <Link to="/apr">
           <div className="main_enter_btn">Enter App</div>
         </Link>
-        <Link to="#">
-          <div className="main_docs_btn">Docs</div>
-        </Link>
+        <a
+          className="main_docs_btn"
+          href="https://c-w.gitbook.io/klaypod/"
+          target="_blank"
+        >
+          Docs
+        </a>
       </div>
     </>
   );
