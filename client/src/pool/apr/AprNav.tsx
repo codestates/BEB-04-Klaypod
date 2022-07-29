@@ -72,6 +72,7 @@ const AprNav: FC<onClickProps> = ({ Connect, account }) => {
               </li>
             </Link>
           )}
+
           <a
             className="pool_header_menu"
             href="https://c-w.gitbook.io/klaypod/"
